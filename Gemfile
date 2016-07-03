@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby 2.2
-
 #Install rails
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
