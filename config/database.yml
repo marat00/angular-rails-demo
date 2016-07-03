@@ -17,21 +17,18 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
-  port: 5434
-  user: shine
+  username: shine
   password: shine
+  min_messages: WARNING
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+  host: localhost
+  port: 5434
 
 development:
   <<: *default
   database: shine_development
-  host: localhost
-  port: 5434
-  user: shine
-  password: shine
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -91,5 +88,3 @@ production:
   database: shine_production
   username: shine
   password: <%= ENV['SHINE_DATABASE_PASSWORD'] %>
-  host: localhost
-  port: 5434

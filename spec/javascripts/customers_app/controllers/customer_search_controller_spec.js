@@ -41,7 +41,6 @@ describe("CustomerSearchController", function() {
 
     beforeEach(module("customers"));
 
-
     beforeEach(inject(function ($controller, $rootScope, $httpBackend) {
       scope       = $rootScope.$new();
       httpBackend = $httpBackend;
@@ -55,6 +54,7 @@ describe("CustomerSearchController", function() {
                   respond(serverResults);
     });
 
+
     it("populates the customer list with the results", function() {
       scope.search("bob");
       httpBackend.flush();
@@ -62,7 +62,7 @@ describe("CustomerSearchController", function() {
     });
   });
   describe("Error Handling", function() {
-
+    
     var scope       = null,
         controller  = null,
         httpBackend = null;
@@ -92,4 +92,5 @@ describe("CustomerSearchController", function() {
         "There was a problem: 500");
     });
   });
+
 });
