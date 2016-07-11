@@ -1,16 +1,5 @@
-/***
- * Excerpted from "Rails, Angular, Postgres, and Bootstrap",
- * published by The Pragmatic Bookshelf.
- * Copyrights apply to this code. It may not be used to create training material,
- * courses, books, articles, and the like. Contact us if you are in doubt.
- * We make no guarantees that this code is fit for any purpose.
- * Visit http://www.pragmaticprogrammer.com/titles/dcbang for more book information.
-***/
 describe("CustomerSearchController", function() {
   describe("Initialization", function() {
-
-    // setup code from before...
-    
 
     var scope       = null,
         controller  = null;
@@ -23,9 +12,6 @@ describe("CustomerSearchController", function() {
         $scope: scope
       });
     }));
-
-    // tests go here...
-
 
     it("defaults to an empty customer list", function() {
       expect(scope.customers).toEqualData([]);
@@ -77,8 +63,6 @@ describe("CustomerSearchController", function() {
   });
   describe("Error Handling", function() {
     
-    // same setup as previous test...
-
     var scope       = null,
         controller  = null,
         httpBackend = null;
