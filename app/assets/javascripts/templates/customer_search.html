@@ -1,4 +1,11 @@
-
+<!--
+ ! Excerpted from "Rails, Angular, Postgres, and Bootstrap",
+ ! published by The Pragmatic Bookshelf.
+ ! Copyrights apply to this code. It may not be used to create training material,
+ ! courses, books, articles, and the like. Contact us if you are in doubt.
+ ! We make no guarantees that this code is fit for any purpose.
+ ! Visit http://www.pragmaticprogrammer.com/titles/dcbang for more book information.
+-->
 <header>
   <h1 class="h2">Customer Search</h1>
 </header>
@@ -31,24 +38,11 @@
       </li>
     </ul>
   </nav>
+
   <ol class="list-group">
-    <li class="list-group-item clearfix" 
+    <li class="list-group-item"
         ng-repeat="customer in customers">
-      <h3 class="pull-right">
-        <small class="text-uppercase">Joined</small>
-        {{ customer.created_at | date }}
-      </h3>
-      <h2 class="h3">
-        {{ customer.first_name }} {{ customer.last_name }}
-        <small>{{ customer.username }}</small>
-      </h2>
-      <div class="pull-right">
-        <button class="btn btn-small btn-primary"
-                ng-click="viewDetails(customer)">
-          View Details…
-        </button>
-      </div>
-      <h4>{{ customer.email }}</h4>
+      <customer-summary cust="customer" view-details-function="viewDetails"></customer-summary>
     </li>
   </ol>
   <nav>
