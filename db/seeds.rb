@@ -2,7 +2,7 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
 if Customer.all.count == 0
-  10_000.times do |i|
+  2_000.times do |i| #create up to 2000 users for heroku
     Customer.create!(
       first_name: Faker::Name.first_name,
        last_name: Faker::Name.last_name,
@@ -11,6 +11,7 @@ if Customer.all.count == 0
   end
 end
 
+# Create references to all 50 states
 State.create!(name: "Alabama"           , code: "AL")
 State.create!(name: "Alaska"            , code: "AK")
 State.create!(name: "Arizona"           , code: "AZ")

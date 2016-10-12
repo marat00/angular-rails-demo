@@ -4,8 +4,8 @@ class AddEmailConstraintToUsers < ActiveRecord::Migration
       ALTER TABLE
         users
       ADD CONSTRAINT
-        email_must_be_company_email
-      CHECK ( email ~* '^[^@]+@example\\.com' )
+        email_must_be_valid_email
+      CHECK ( email ~* '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$' )
     }
   end
   def down
@@ -13,7 +13,7 @@ class AddEmailConstraintToUsers < ActiveRecord::Migration
       ALTER TABLE
         users
       DROP CONSTRAINT
-        email_must_be_company_email
+        email_must_be_valid_email
     }
   end
 end

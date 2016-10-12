@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  PAGE_SIZE = 10
+  PAGE_SIZE = 20
 
   def index
     @page = (params[:page] || 0).to_i
