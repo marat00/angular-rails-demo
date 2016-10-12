@@ -139,8 +139,8 @@ Devise.setup do |config|
   # config.rememberable_options = {}
 
   # ==> Configuration for :validatable
-  config.password_length = 10..128
-  config.email_regexp = /\A[^@]+@example.com\z/
+  config.password_length = 7..48
+  config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
