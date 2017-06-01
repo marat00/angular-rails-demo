@@ -1,31 +1,30 @@
 require 'rails_helper'
 
-feature "angular test" do
+RSpec.feature "Angular Test" do
+  let(:email)    { "pat@example.com" }
+  let(:password) { "password123" }
 
-	let(:email)    { "bob@example.com" }
-	let(:password) { "password123" }
+  before do
+    User.create!(email: email,
+                 password: password,
+                 password_confirmation: password)
+  end
 
-	before do
-		User.create!(email: email,
-			         password: password,
-			         password_confirmation: password)
-	end
+  scenario "Our Angular Test App is Working" do
+    visit "/angular_test"
 
-	scenario "Our Angular Test App is Working" do
-		visit "/angular_test"
+    # Log In
+    fill_in      "Email",    with: email
+    fill_in      "Password", with: password
+    click_button "Log in"
 
-		#Log In
-		fill_in      "Email",    with: "bob@example.com"
-		fill_in      "Password", with: "password123"
-		click_button "Log in"
+    # Check that we go to the right page
+    expect(page).to have_content("Name")
 
-		#Check that we go to the right page
-		expect(page).to have_content("Name")
-
-		#Test the page
-		fill_in "name", with: "Bob"
-		within "header h1" do
-			expect(page).to have_content("Hello, Bob")
-		end
-	end
+    # Test the page
+    fill_in "name", with: "Pat"
+    within "h2" do
+      expect(page).to have_content("Hello Pat")
+    end
+  end
 end
